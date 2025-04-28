@@ -1,0 +1,86 @@
+:root {
+  --primary-bg-color: #55b3f1;
+  --secondary-bg-color: #e0ecf5;
+  --primary-font-color: rgb(63, 63, 63);
+  --secondary-font-color: white;
+}
+
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px 0px;
+}
+
+.quotez-navbar {
+  font-size: 1.75rem;
+  padding: 1rem;
+  background-color: var(--primary-bg-color);  
+  color: var(--secondary-font-color);
+}
+
+.quotez-navbar__title {
+  font-weight: 600;
+}
+
+.quotez-main {
+  height: 100vh;
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-font-color);
+}
+
+.quotez-main__image {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.quotez-main__quote--opacity {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-color: black;
+}
+
+.quotez-main__quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+}
+
+.quotez-main__quote__text {
+  padding: 3rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: var(--secondary-bg-color);
+}
+
+.quotez-main__quote__author {
+  margin-top: 1rem;
+  opacity: 0.75;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--secondary-bg-color);
+}
+
+@media (max-width: 600px) {
+  .quotez-main__quote__text {
+    padding: 1rem;
+  }
+  .quotez-main__quote__author {
+    font-size: 0.75rem;
+  }
+
+  .quotez-main__quote__text {
+    font-size: 1.15rem;
+  }
+}
