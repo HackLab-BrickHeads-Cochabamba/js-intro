@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
       ip: req.socket.remoteAddress,
       userAgent: req.headers['user-agent']
     })
-    res.socket.write(
+    const responseMessage = 
 `HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: ${Buffer.byteLength(body)}
@@ -39,7 +39,7 @@ Connection: close
 
 ${body}
 `
-    )
+    res.socket.write(responseMessage)
     res.socket.end()
   } else {
     res.writeHead(302, { location: '/' });
