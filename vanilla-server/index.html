@@ -18,15 +18,50 @@
     <div class="quotez-main__image" id="quotez-image">
       <div class="quotez-main__quote--opacity"></div>
       <img src="https://picsum.photos/1280/720" alt="quotez image">
-      <div class="quotez-main__quote">
+      <!-- <div class="quotez-main__quote">
         <div class="quotez-main__quote__text">
           Never be bullied into silence. Never allow yourself to be made a victim. Accept no one's definition of your life; define yourself
         </div>
         <div class="quotez-main__quote__author">
           Harvey Fierstein
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
+  <script>
+    const quoteContainer =  document.createElement('div')
+    quoteContainer.className = "quotez-main__quote"
+    const quoteText =  document.createElement('div')
+    quoteText.className = "quotez-main__quote__text"
+    quoteText.innerHTML = `Never be bullied into silence. Never allow yourself to be made a victim. Accept no one's definition of your life; define yourself`
+    const quoteAuthor =  document.createElement('div')
+    quoteAuthor.className = "quotez-main__quote__author"
+    quoteAuthor.innerHTML = 'Harvey Fierstein'
+    quoteContainer.appendChild(quoteText)
+    quoteContainer.appendChild(quoteAuthor)
+    const  quotezImageDiv = document.getElementById('quotez-image')
+    quotezImageDiv.appendChild(quoteContainer)
+
+    function setQuoteText (value) {
+      quoteText.innerHTML = value
+    }
+
+    const data = {
+      imageUrl: 'https://picsum.photos/1280/720',
+      quote: ''
+    }
+
+    const dataProxy = new Proxy(data, {
+      get(target, prop, receiver) {
+        console.log('get', target, prop)
+        return target[prop]
+      },
+      set(target, prop, value) {
+        console.log('set', target, prop, value)
+        setQuoteText(value)
+        target[prop] = value
+      }
+    })
+  </script>
 </body>
 </html>
